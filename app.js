@@ -214,6 +214,12 @@ jQuery(function ($) {
 
       return this.todos;
     },
+     // filter todos that are not completed
+     // filter todos that are complete
+     // FilteredTodos if equal to active return getActiveTodos
+     // if completed retured getCompletedTodos
+     // return todos
+
     destroyCompleted: function () {
       this.getCompletedTodos().forEach(todo => ajax.destroy(todo));
       this.todos = this.getActiveTodos();
@@ -222,7 +228,7 @@ jQuery(function ($) {
     },
     // accepts an element from inside the `.item` div and
     // returns the corresponding index in the `todos` array
-    
+
     indexFromEl: function (el) {
       var id = String($(el).closest('li').data('id'));
       var todos = this.todos;
@@ -234,6 +240,9 @@ jQuery(function ($) {
         }
       }
     },
+     // string of elements closest li with ids
+    // while coundting down return the todo equal to id with todos.length
+
     create: function (e) {
       var $input = $(e.target);
       var val = $input.val().trim();
